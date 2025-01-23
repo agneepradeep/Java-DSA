@@ -19,6 +19,7 @@ public class OperationsOnArrayList {
             System.out.println("5. Update Element at Specific Index");
             System.out.println("6. Remove Element by Index");
             System.out.println("7. Size of ArrayList");
+            System.out.println("8. Sort the ArrayList");
             System.out.println("-1. Exit");
             System.out.println("**********************************");
             choice = read.nextInt();
@@ -52,6 +53,11 @@ public class OperationsOnArrayList {
                 case 7:
                     arrSize = arrayList.size();
                     System.out.println("Length :"+arrSize);
+                    break;
+                case 8:
+                    Collections.sort(arrayList);
+                    System.out.println("List :"+arrayList);
+                    break;
                 case -1:
                     break;
                 default:

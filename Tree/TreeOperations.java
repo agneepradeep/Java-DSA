@@ -80,9 +80,48 @@ class BinarySearchTree {
         postorderTraversal(root);
         System.out.println();
     }
+    
+    int sizeOfTree(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int lCount = sizeOfTree(node.left);
+        int rCount = sizeOfTree(node.right);
+        return lCount+rCount+1;
+        
+    }
+    int size() {
+        return sizeOfTree (root);
+        
+    }
+    
+    int sumOfNodes(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int lSum = sumOfNodes(node.left);
+        int rSum = sumOfNodes(node.right);
+        return lSum+rSum+node.val; 
+    }
+    
+    int sum() {
+        return sumOfNodes(root);
+    }
+    
+    int maxOfBST(Node node) {
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
+        int lMax = maxOfBST(node.left);
+        int rMax = maxOfBST(node.right);
+        return Math.max(Math.max(lMax,rMax),node.val);
+    }
+    int max () {
+        return maxOfBST(root);
+    }
 }
 
-public class TraversalBST {
+public class TreeOperations {
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.insertNode(10);
@@ -99,5 +138,8 @@ public class TraversalBST {
         bst.preorder();
         System.out.print("Postorder Traversal: ");
         bst.postorder();
+        System.out.println("Size Of Tree: "+bst.size());
+        System.out.println("Sum Of Nodes Of Tree: "+bst.sum());
+        System.out.println("Max of Tree: "+bst.max());
     }
 }
